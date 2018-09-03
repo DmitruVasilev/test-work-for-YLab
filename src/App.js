@@ -1,18 +1,46 @@
 import React, {Component} from "react";
 import "./sass/general.sass";
 
-const list = [
+const generalList = [
   {
-    title: "title",
+    title: "title 1",
     key: "1",
     subtitles: [
       {
-        title: "title",
+        title: "title 1.1",
         key: "1.1",
         subtitles: [
           {
-            title: "title",
+            title: "title 1.1.1",
             key: "1.1.1",
+          },
+          {
+            title: "title 1.1.2",
+            key: "1.1.2",
+          },
+          {
+            title: "title 1.1.3",
+            key: "1.1.3",
+          },
+        ],
+      },
+      {
+        title: "title 1.2",
+        key: "1.2",
+      },
+    ],
+  },
+  {
+    title: "title 2",
+    key: "2",
+    subtitles: [
+      {
+        title: "title 2.1",
+        key: "2.1",
+        subtitles: [
+          {
+            title: "title 2.1.1",
+            key: "2.1.1",
           },
         ],
       },
@@ -21,26 +49,19 @@ const list = [
 ];
 
 class App extends Component {
+  mapArray = (list) => (
+    <ul className="list">
+      {list.map((listItem) => (
+        <li className="list__item" key={listItem.key}>
+          <p>{listItem.title}</p>
+          {listItem.subtitles ? this.mapArray(listItem.subtitles) : null}
+        </li>
+      ))}
+    </ul>
+  );
+
   render() {
-    return (
-      <main>
-        {list.map((listItem) => (
-          <ul className="list">
-            <li className="list__item" key={listItem.key}>
-              {listItem.title}
-            </li>
-            {listItem.subtitles &&
-              listItem.subtitles.map((listItem1) => (
-                <ul className="list">
-                  <li className="list__item" key={listItem1.key}>
-                    {listItem1.title}
-                  </li>
-                </ul>
-              ))}
-          </ul>
-        ))}
-      </main>
-    );
+    return <main>{this.mapArray(generalList)}</main>;
   }
 }
 
