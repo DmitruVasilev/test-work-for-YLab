@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import EditableLabel from "react-inline-editing";
 import "./sass/general.sass";
 
 const generalList = [
@@ -53,7 +54,7 @@ class App extends Component {
     <ul className="list">
       {list.map((listItem) => (
         <li className="list__item" key={listItem.key}>
-          <p>{listItem.title}</p>
+          <EditableLabel text={listItem.title} labelClassName="EditableLabel" inputClassName="EditableInput" />
           {listItem.subtitles ? this.mapArray(listItem.subtitles) : null}
         </li>
       ))}
