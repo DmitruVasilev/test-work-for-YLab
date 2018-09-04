@@ -1,55 +1,17 @@
 import React, {Component} from "react";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import EditableLabel from "react-inline-editing";
-import "./sass/general.sass";
-
-const generalList = [
-  {
-    title: "title 1",
-    key: "1",
-    subtitles: [
-      {
-        title: "title 1.1",
-        key: "1.1",
-        subtitles: [
-          {
-            title: "title 1.1.1",
-            key: "1.1.1",
-          },
-          {
-            title: "title 1.1.2",
-            key: "1.1.2",
-          },
-          {
-            title: "title 1.1.3",
-            key: "1.1.3",
-          },
-        ],
-      },
-      {
-        title: "title 1.2",
-        key: "1.2",
-      },
-    ],
-  },
-  {
-    title: "title 2",
-    key: "2",
-    subtitles: [
-      {
-        title: "title 2.1",
-        key: "2.1",
-        subtitles: [
-          {
-            title: "title 2.1.1",
-            key: "2.1.1",
-          },
-        ],
-      },
-    ],
-  },
-];
 
 class App extends Component {
+  static propTypes = {
+    list: PropTypes.arrayOf(PropTypes.object),
+  };
+
+  static defaultProps = {
+    list: [],
+  };
+
   mapArray = (list) => (
     <ul className="list">
       {list.map((listItem) => (
@@ -62,8 +24,9 @@ class App extends Component {
   );
 
   render() {
-    return <main>{this.mapArray(generalList)}</main>;
+    const {list} = this.props;
+    return <main>{this.mapArray(list)}</main>;
   }
 }
 
-export default App;
+export default connect((state) => ({list: state.list}))(App);

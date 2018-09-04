@@ -2,7 +2,7 @@
   "name": "test-work-for-YLab",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "https://dmitruvasilev.github.io/test-work-for-YLab/",
+  "homepage": "https://dmitruvasilev.github.io/test-work-for-YLab/",
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
@@ -52,6 +52,7 @@
     "react-dom": "^16.4.2",
     "react-inline-editing": "^1.0.10",
     "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "resolve": "1.6.0",
     "style-loader": "0.19.0",
