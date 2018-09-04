@@ -4,6 +4,7 @@
   "rules": {
     "indentation": null,
     "block-closing-brace-newline-before": null,
+    "block-closing-brace-space-before": null,
     "block-opening-brace-space-before": null,
     "declaration-block-trailing-semicolon": null,
     "declaration-empty-line-before": "never",
